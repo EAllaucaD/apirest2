@@ -36,22 +36,6 @@ app.delete('/items/:id', (req, res) => {
     res.status(200).json({ message: `Item con id ${id} eliminado` });
 });
 
-// Put for ID
-app.put('/items/:id', (req, res) => {
-    const { id } = req.params;
-    const { name } = req.body;  
-
-    // find item
-    let item = items.find(item => item.id == id);
-
-    if (item) {
-        // Update name
-        item.name = name;
-        res.status(200).json(item);
-    } else {
-        res.status(404).json({ message: `Item con id ${id} no encontrado` });
-    }
-});
 
 //Port
 const PORT = 3000;
